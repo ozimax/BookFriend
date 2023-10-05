@@ -4,6 +4,22 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px; /* Set the desired height of the footer */
+    background-color: black;
+    text-align: center;
+}
+
+.page-header {
+    background-color: black !important;
+}
+
+
+
+
 h1:focus {
     outline: none;
 }
@@ -62,3 +78,80 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.custom-rectangle {
+            background-color: #4caf50; /* Green color */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            position: relative;
+        }
+
+        /* On larger screens, show up to 4 rectangles per row */
+        @media (min-width: 768px) {
+            .custom-rectangle {
+                height: calc(16vw * 1.5);
+                width: 23%;
+            }
+        }
+
+        /* On smaller screens, show up to 3 rectangles per row */
+        @media (max-width: 767px) {
+            .custom-rectangle {
+                height: calc(24vw * 1.5);
+                width: 31%;
+            }
+        }
+
+        /* Square image within each rectangle */
+        .square-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Smaller title on top */
+        .custom-rectangle h5 {
+            font-size: 80%; /* Reduce font size by 20% */
+            margin-bottom: 5px;
+            text-decoration: none; /* Remove underlines */
+            color: #fff !important;
+        }
+
+        /* Author text at the bottom, aligned to the left */
+        .author-text {
+            position: absolute;
+            bottom: 0;
+            left: 0; /* Align to the left */
+            color: #fff !important;
+            font-size: 80%; /* Smaller font size */
+            padding: 5px 10px; /* Add padding for better visibility */
+            text-decoration: none; /* Remove underlines */
+}
+
+        /* Make rectangles clickable anchor tags */
+        .rectangle-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Increase the top text size by 10% on larger screens */
+        @media (min-width: 768px) {
+            .custom-rectangle h5 {
+                font-size: 90%; /* Increase by 10% */
+            }
+        }
+
+        a{
+            text-decoration: none !important;
+        }
