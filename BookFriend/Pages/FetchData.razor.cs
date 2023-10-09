@@ -7,7 +7,7 @@ namespace BookFriend.Pages
     public partial class FetchData
     {
 
-        public List<Book> Books { get; set; } = default!;
+        public BookContainer Books { get; set; } = default!;
 
         [Inject]
         public IBookService? BookService { get; set; }
@@ -15,7 +15,7 @@ namespace BookFriend.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            Books = (await BookService.GetBooksBySubject("Math")).ToList();
+            Books = (await BookService.GetBooksBySubject("Math"));
 
             if (true) { }
         }

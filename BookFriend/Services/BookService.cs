@@ -1,4 +1,7 @@
 ﻿using BookFriend.Models;
+using Newtonsoft.Json.Linq;
+using System.IO;
+using System.Text;
 using System.Text.Json;
 
 namespace BookFriend.Services
@@ -11,14 +14,14 @@ namespace BookFriend.Services
         {
             _httpClient = httpClient;
         }
-        public async Task<IEnumerable<Book>> GetBooksBySubject(string subject)
+        public async Task<BookContainer> GetBooksBySubject(string subject)
         {
-            //fix root object in json for parsing
-            var list = await JsonSerializer.DeserializeAsync<IEnumerable<Book>>
-                    (await _httpClient.GetStreamAsync($"https://openlibrary.org/search.json?q={subject}"));
 
+            var bookList = JsonSerializer.DeserializeAsync<BookContainer>
+               (await _httpClient.GetStreamAsync($"https://openlibrary.org/search.json?q={subject}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-            return list;
+            return bookList.Result;
+            
 
         }
     }
