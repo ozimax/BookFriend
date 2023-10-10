@@ -4,6 +4,8 @@ namespace BookFriend.Services
 {
     public interface IBookService
     {
-        Task<BookContainer> GetBooksBySubject(string subject);
+        Task<List<Book>> GetBooksBySubject(string subject, int take = 20);
+
+        Task<List<BookCover>> GetBookCoverList(List<string> ISBNs);
     }
 }

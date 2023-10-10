@@ -12,6 +12,11 @@ namespace BookFriend.Models
         public List<string> AuthorNames { get; set; } = null;
 
 
+        [JsonPropertyName("cover_edition_key")]
+        public string CoverEditionKey { get; set; }
+
+
+
         [JsonPropertyName("first_publish_year")]
         public int PublishYear { get; set; }
 

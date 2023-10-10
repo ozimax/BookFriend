@@ -7,7 +7,7 @@ namespace BookFriend.Pages
     public partial class FetchData
     {
 
-        public BookContainer Books { get; set; } = default!;
+        public List<Book> Books { get; set; } = default!;
 
         [Inject]
         public IBookService? BookService { get; set; }
