@@ -25,59 +25,24 @@
 
 <div class="container">
     <div class="row">
-        <!-- Rectangle 1 with embedded square image -->
+      
+        @if (Books == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            @foreach(var book in Books)
+            {
+               <BookItem Book="book"></BookItem> 
 
-        <div class="col-md-3 col-sm-6 col-xs-11 custom-rectangle">
-            <a href="#">
-                <h5>Rectangle 1 dsfdsfsdfsdf sfdsfsd</h5>
-                <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-                <div class="author-text">Author asasdasd asdasdasd asdasdasd</div>
+            }
 
-            </a>
-            
-        </div>
 
-        <!-- Rectangle 2 with embedded square image -->
-        <div class="col-md-3 col-sm-6 col-xs-11 custom-rectangle">
-            <h5>Rectangle 2</h5>
-            <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-            <div class="author-text">Author</div>
-        </div>
+        }
 
-        <!-- Rectangle 3 with embedded square image -->
-        <div class="col-md-3 col-sm-6 col-xs-11 custom-rectangle">
-            <h5>Rectangle 3</h5>
-            <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-            <div class="author-text">Author</div>
-        </div>
+       
 
-        <!-- Rectangle 4 with embedded square image -->
-        <div class="col-md-3 col-sm-6 col-12 custom-rectangle">
-            <h5>Rectangle 4</h5>
-            <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-            <div class="author-text">Author</div>
-        </div>
-
-        <!-- Rectangle 2 with embedded square image -->
-        <div class="col-md-3 col-sm-6 col-12 custom-rectangle">
-            <h5>Rectangle 2</h5>
-            <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-            <div class="author-text">Author</div>
-        </div>
-
-        <!-- Rectangle 3 with embedded square image -->
-        <div class="col-md-3 col-sm-6 col-12 custom-rectangle">
-            <h5>Rectangle 3</h5>
-            <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-            <div class="author-text">Author</div>
-        </div>
-
-        <!-- Rectangle 4 with embedded square image -->
-        <div class="col-md-3 col-sm-6 col- custom-rectangle">
-            <h5>Rectangle 4</h5>
-            <img src="https://thumbs.dreamstime.com/z/npc-universe-top-competitors-fitness-short-class-link-arms-victory-athletes-marissa-herring-th-place-56404512.jpg" alt="Image" class="square-image">
-            <div class="author-text">Author</div>
-        </div>
     </div>
 </div>
 
