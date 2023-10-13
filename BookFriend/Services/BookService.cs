@@ -21,19 +21,28 @@ namespace BookFriend.Services
         }
         public async Task<List<Book>> GetBooksBySubject(string subject, int take = 20)
         {
-            int iSBNLimit = 4;
+            int iSBNLimit = 6;
 
             var books = JsonSerializer.DeserializeAsync<BookContainer>
                (await _httpClient.GetStreamAsync($"https://openlibrary.org/search.json?q={subject}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }).Result.Books;
 
-            books.RemoveAll(b => b.CoverEditionKey == null);
-            books.RemoveAll(b => b.ISBNs.Count() > iSBNLimit);
-            books = books.Take(take).ToList();
+            
+            try 
+            {
+                books.RemoveAll(b => b.CoverEditionKey == null);
+                books.RemoveAll(b => b.ISBNs.Count() > iSBNLimit || b.ISBNs.Count() == 0);
+                books = books.Take(take).ToList();
 
-            var bookISBNList = books.Select(x => x.ISBNs.Take(1).ToList());
-            var bookCoverList = await GetBookCoverList(bookISBNList.SelectMany(list => list).ToList());
-            books = PrepareBooksWithCovers(books, bookCoverList);
-            return books;            
+                var bookISBNList = books.Select(x => x.ISBNs.Take(1).ToList());
+                var bookCoverList = await GetBookCoverList(bookISBNList.SelectMany(list => list).ToList());
+                books = PrepareBooksWithCovers(books, bookCoverList);
+                return books;
+            }
+            catch(Exception ex) 
+            {
+                return null;
+            }
+                       
 
         }
 

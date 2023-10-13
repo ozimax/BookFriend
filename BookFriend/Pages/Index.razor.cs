@@ -10,9 +10,17 @@ namespace BookFriend.Pages
         public IBookService? BookService { get; set; }
         public List<Book> Books { get; set; } = default!;
 
+        private string searchText;
+
         protected override async Task OnInitializedAsync()
         {
-            Books = (await BookService.GetBooksBySubject("Math")).ToList();  
+            Books = (await BookService.GetBooksBySubject("Novel")).ToList();  
+        }
+
+        private async Task HandleSearchAsync(string text)
+        {
+            searchText = text;
+            Books = (await BookService.GetBooksBySubject(searchText)).ToList();
         }
 
     }

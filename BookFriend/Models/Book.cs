@@ -11,6 +11,9 @@ namespace BookFriend.Models
         [JsonPropertyName("author_name")]
         public List<string> AuthorNames { get; set; } = null;
 
+        [JsonPropertyName("publisher_facet")]
+        public List<string> Publishers { get; set; } = null;
+
 
         [JsonPropertyName("cover_edition_key")]
         public string CoverEditionKey { get; set; }
@@ -21,7 +24,7 @@ namespace BookFriend.Models
         public int PublishYear { get; set; }
 
         [JsonPropertyName("isbn")]
-        public string[] ISBNs { get; set; }
+        public List<string> ISBNs { get; set; } = new List<string>();
 
         public BookCover Cover { get; set; }
     }
