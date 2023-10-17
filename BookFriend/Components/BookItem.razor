@@ -1,5 +1,7 @@
-﻿<div class="col-md-3 col-sm-6 col-xs-11 custom-rectangle">
-    <a href="#">
+﻿@using System.Text.Json;
+
+<div class="col-md-3 col-sm-6 col-xs-11 custom-rectangle">
+    <a @onclick="() => HandleBookLink()">
         <h5><b>@Book.Title</b></h5>
         <img src="@Book.Cover.MediumImage_url" alt="Image" class="square-image">
         <div class="author-text">@Book.Publishers[0]</div>
